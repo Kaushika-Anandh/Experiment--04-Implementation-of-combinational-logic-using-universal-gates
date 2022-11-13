@@ -7,9 +7,9 @@ To implement the given logic function using NAND and NOR gates and to verify its
 F=((C'.B.A)'(D'.C.A)'(C.B'.A)')' using NAND gate
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')' using NOR gate
 ## Equipments Required:
-## Hardware – PCs, Cyclone II , USB flasher
-## Software – Quartus prime
+Hardware – PCs, Cyclone II , USB flasher
 
+Software – Quartus prime
 
 ## Theory
 Logic gates are electronic circuits which perform logical functions on one or more inputs to produce one output. 
@@ -27,6 +27,7 @@ NOR gate is actually a combination of two logic gates: OR gate followed by NOT g
 F=(((C.B'.A)+(D.C'.A)+(C.B'.A))')'
 
 ## Logic Diagram
+
 ## Procedure
 ## Program:
 /*
@@ -34,10 +35,45 @@ Program to implement the given logic function using NAND and NOR gates and to ve
 Developed by: 
 RegisterNumber:  
 */
-## RTL realization
+## Using NAND:
+```verilog
+   module combo1(a,b,c,d,f);
+   input a,b,c,d;
+   output f;
+   wire p,q,r;
+   assign p=(~c & b & a);
+   assign q=(~d & c & ~a);
+   assign r=(c & ~b & a);
+   assign f=(~(~p & ~q & ~r));
+   endmodule
+```
+## Using NOR:
+```verilog
+   module combo2(a,b,c,d,f);
+   input a,b,c,d;
+   output f;
+   wire p,q,r;
+   assign p=( c & ~b & a);
+   assign q=( d & ~c & a);
+   assign r=( c & ~b & a);
+   assign f=(~(~( p | q | r)));
+   endmodule
+```
+# Output:
+## Using NAND:
+## RTL:
+![](combo1.png)
+## Timing Diagram:
+![](combo1%20wave.png)
+## Truth Table:
+![](combo1TT.png)
 
-## Output:
-## RTL
-## Timing Diagram
+## Using NOR:
+## RTL:
+![](combo2.png)
+## Timing Diagram:
+![](combo2%20wave.png)
+## Truth Table:
+![](combo2TT.png)
 ## Result:
 Thus the given logic functions are implemented using NAND and NOR gates and their operations are verified using Verilog programming.
