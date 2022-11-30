@@ -1,5 +1,9 @@
+Exp: 04
+
+Date:20.09.2022
+
+
 # Experiment--04-Implementation-of-combinational-logic-using-universal-gates
-Implementation of combinational logic using universal-gates
  
 ## AIM:
 To implement the given logic function using NAND and NOR gates and to verify its operation in Quartus using Verilog programming.
